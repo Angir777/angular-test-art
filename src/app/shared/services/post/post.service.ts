@@ -20,8 +20,29 @@ export class PostService {
     return of(this.posts);
   }
 
-  deletePost(post: Post){
+  deletePost(post: Post) {
     const index = this.posts.findIndex(x => x.id === post.id);
     this.posts.splice(index, 1);
-  } 
+  }
+
+  addPost(post: Post) {
+    const postId = this.posts.length + 1;
+    post.id = postId;
+    this.posts.push(post);
+  }
+
+  getPostById(postID: number) {
+    const index = this.posts.find(x => x.id === postID);
+    return index;
+  }
+
+  editPost(postId:number, title: string, text: string) {
+    // pobranie danego postu
+    const post = this.getPostById(Number(postId));
+    // edycja danych
+    post!.title = title;
+    post!.text = text;
+    // return
+    return post;
+  }
 }

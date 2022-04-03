@@ -21,7 +21,6 @@ export class PostsComponent implements OnInit {
 
   deletePost(post: Post){
     this.postService.deletePost(post);
-    this.postService.getPosts().subscribe(res => this.posts = res);
   }
 
 }
