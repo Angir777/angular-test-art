@@ -11,6 +11,8 @@ import { PostService } from 'src/app/shared/services/post/post.service';
 export class ShowPostComponent implements OnInit {
   id!: string;
 
+  paczka: string = '';
+
   post!: any;
 
   constructor(
@@ -23,6 +25,10 @@ export class ShowPostComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.post = this.postService.getPostById(Number(this.id));
     console.log(this.post);
+  }
+
+  odbierzPaczke(message: string) {
+    this.paczka = message;
   }
 
 }
