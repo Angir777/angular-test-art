@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class TestChildComponent implements OnInit {
 
-  // to co wchodzi tutaj do komponenty od rodzica, czyli od show-post
+  // to co wchodzi tutaj do komponentu od rodzica, czyli od show-post
   @Input() exampleTitle: string = '';
 
   // to co z tąd wychodzi i idzie do rodzica
