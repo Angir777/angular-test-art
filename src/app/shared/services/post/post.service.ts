@@ -26,6 +26,18 @@ export class PostService {
     return this.http.get<IPost[]>(this._url);
   }
 
+  add(post:IPost): Observable<IPost> {
+    return this.http.post<IPost>(this._url, post);
+  }
+
+  update(post:IPost): Observable<IPost> {
+    return this.http.put<IPost>(`${this._url}/${post.id}`, post);
+  }
+
+  delete(post:IPost): Observable<boolean> {
+    return this.http.delete<boolean>(`${this._url}/${post.id}`);
+  }
+
   getPosts(): Observable<Post[]> {
     return of(this.posts);
   }
