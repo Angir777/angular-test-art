@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
     
-        <div *ngFor="let post of posts.slice(-3).reverse(); let i = index" class="col">
+        <!-- <div *ngFor="let post of posts.slice(-3).reverse(); let i = index" class="col">
             <div id="{{ i }}" class="card shadow-sm">
                 <div class="card-body">
                     <h2>{{ post.id }} | {{ post.title }}</h2>
@@ -13,6 +13,15 @@
                             <button type="button" class="btn btn-sm btn-outline-danger" (click)="deletePost(post)">Delete</button>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div *ngFor="let post of posts2; let i = index" class="col">
+            <div id="{{ i }}" class="card shadow-sm">
+                <div class="card-body">
+                    <h2>{{ post.id }} | {{ post.title }}</h2>
+                    <p class="card-text">{{ post.body }}</p>
                 </div>
             </div>
         </div>
