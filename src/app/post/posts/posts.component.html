@@ -31,7 +31,7 @@
                     <p class="card-text">{{ post.body }}</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-primary" (click)="openModal(template)">Edit</button>
+                            <button type="button" class="btn btn-sm btn-outline-primary" (click)="openModal(template, post)">Edit</button>
                             <button type="button" class="btn btn-sm btn-outline-danger" (click)="deletePost2(post)">Delete</button>
                         </div>
                     </div>
@@ -44,12 +44,24 @@
 
 <ng-template #template>
     <div class="modal-header">
-      <h4 class="modal-title pull-left">Modal</h4>
+      <h4 class="modal-title pull-left">{{ modalTitle }}</h4>
       <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
         <span aria-hidden="true" class="visually-hidden">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      This is a modal.
+        <div class="form-group">
+            <label for="postTitle">Title</label>
+            <input type="text" class="form-control" id="postTitle" [formControl]="postTitle">
+            <small *ngIf="postTitle.errors?.required && showError">Title is required.</small>
+        </div>
+        <div class="form-group">
+            <label for="postBody">Body</label>
+            <textarea class="form-control" id="postBody" [formControl]="postBody"></textarea>
+            <small *ngIf="postBody.errors?.required && showError">Body is required.</small>
+        </div>
+        <button type="button" class="btn btn-primary mt-3" (click)="save()">{{ btnTitle }}</button>
     </div>
 </ng-template>
+
+<!-- https://www.youtube.com/watch?v=cw98ztmwJ2s&ab_channel=CodeSensei -->
